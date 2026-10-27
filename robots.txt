@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thehomedeskguide.com/sitemap.xml
