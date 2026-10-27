@@ -1,0 +1,149 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Central de Agentes · The Home Desk Guide</title><link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#060b16;--card:#0d172b;--line:#1b2a48;--ink:#eaf0fb;--muted:#8fa0bf;--blue:#3b82f6;--cyan:#22d3ee;--green:#34d399;--amber:#fbbf24;--pink:#f472b6;--violet:#a78bfa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1000px 500px at 80% -10%,rgba(59,130,246,.18),transparent),var(--bg);color:var(--ink);font-family:Inter,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:22px 18px 40px}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.logo{display:flex;gap:12px;align-items:center}.logo img{width:46px;height:46px}.logo b{font-family:"Plus Jakarta Sans";font-size:1.35rem;letter-spacing:-.01em}.logo b em{font-style:normal;color:var(--cyan)}
+.logo small{display:block;color:var(--muted);font-family:"JetBrains Mono";font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.right{display:flex;align-items:center;gap:18px}.pill{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-weight:600;font-size:.85rem}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+.clock{font-family:"JetBrains Mono",monospace;font-size:1.7rem;font-weight:700;text-align:right}.clock small{display:block;font-family:Inter;font-size:.78rem;color:var(--muted);font-weight:400}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.kpi{background:linear-gradient(180deg,var(--card),#0a1324);border:1px solid var(--line);border-radius:14px;padding:14px 16px;position:relative;overflow:hidden}
+.kpi:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.6}
+.kpi label{font-family:"JetBrains Mono";font-size:.66rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.kpi b{display:block;font-family:"JetBrains Mono";font-size:1.7rem;margin:6px 0 2px}.kpi span{font-size:.78rem;color:var(--muted)}.kpi a{color:var(--cyan);font-size:.78rem}
+h2{font-family:"JetBrains Mono";font-size:.8rem;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;margin:26px 0 10px;display:flex;justify-content:space-between}
+h2 span{letter-spacing:0;text-transform:none;font-family:Inter}
+.line{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;justify-content:space-between;position:relative}
+.line:before{content:"";position:absolute;left:8%;right:8%;top:48px;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--violet))}
+.step{text-align:center;position:relative;flex:1}.step .ic{width:56px;height:56px;margin:0 auto 8px;border-radius:14px;background:#0a1324;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.step b{display:block;font-size:.88rem}.step small{color:var(--muted);font-size:.75rem;display:block}.step code{font-family:"JetBrains Mono";font-size:.72rem;color:var(--ink)}
+.office{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.office svg{width:100%;height:auto;display:block}
+.bottom{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.agent{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;transition:border-color .2s}
+.agent:hover,.agent.sel{border-color:var(--cyan)}
+.agent .top{display:flex;justify-content:space-between;align-items:center}.agent b{font-family:"Plus Jakarta Sans"}
+.st{font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid}
+.st.work{color:var(--cyan);border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.1)}
+.st.done{color:var(--green);border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.1)}
+.st.rest{color:var(--muted);border-color:var(--line)}.st.err{color:#f87171;border-color:rgba(248,113,113,.4);background:rgba(248,113,113,.1)}
+.st.soon{color:var(--violet);border-color:rgba(167,139,250,.4)}
+.agent p{margin:8px 0 0;color:var(--muted);font-size:.82rem}.agent .meta{font-family:"JetBrains Mono";font-size:.72rem;color:var(--ink);margin-top:8px}
+.feed{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 16px;max-height:330px;overflow:auto}
+.ev{padding:10px 0;border-bottom:1px solid var(--line);font-size:.85rem}.ev:last-child{border:0}.ev time{font-family:"JetBrains Mono";font-size:.72rem;color:var(--muted);display:block}.ev b{color:var(--cyan)}
+.note{color:var(--muted);font-size:.78rem;margin-top:10px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.robot{animation:bob 2.4s ease-in-out infinite}.robot.work .screen{fill:var(--cyan)}
+@keyframes blink{0%,90%,100%{opacity:1}95%{opacity:.2}}.eye{animation:blink 4s infinite}
+@media(max-width:1000px){.kpis{grid-template-columns:repeat(3,1fr)}.bottom{grid-template-columns:1fr}}
+@media(max-width:600px){.kpis{grid-template-columns:repeat(2,1fr)}.line{flex-wrap:wrap;gap:14px}.line:before{display:none}.step{flex:0 0 45%}.team{grid-template-columns:1fr}.clock{font-size:1.2rem}}
+</style></head><body><div class="wrap">
+<header><div class="logo"><img src="/favicon.svg" alt=""><div><b>The Home <em>Desk</em> Guide</b><small>Central de comando · agentes reais</small></div></div>
+<div class="right"><div class="pill"><span class="dot"></span><span id="op">Operação ligada</span></div><div class="clock" id="clock">--:--:--<small id="next">próxima rodada…</small></div></div></header>
+
+<div class="kpis">
+<div class="kpi"><label>Artigos no ar</label><b id="k-art">–</b><span>guias publicados</span></div>
+<div class="kpi"><label>Produtos no ar</label><b id="k-prod">–</b><span>com link de afiliado</span></div>
+<div class="kpi"><label>Links diretos</label><b id="k-dp">–</b><span id="k-dp2">direto pro produto</span></div>
+<div class="kpi"><label>Rodadas hoje</label><b id="k-runs">–</b><span>tarefas concluídas</span></div>
+<div class="kpi"><label>Vendas</label><b>↗</b><a href="https://affiliate-program.amazon.com/home/reports" target="_blank">ver no painel Amazon</a></div>
+<div class="kpi"><label>Google</label><b>↗</b><a href="https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain:thehomedeskguide.com" target="_blank">ver no Search Console</a></div>
+</div>
+
+<h2>Linha de produção <span id="pipe-note"></span></h2>
+<div class="line">
+<div class="step"><div class="ic">🔭</div><b>Pesquisa</b><small>Redator</small><code id="p1">–</code></div>
+<div class="step"><div class="ic">✍️</div><b>Redação</b><small>Redator</small><code id="p2">–</code></div>
+<div class="step"><div class="ic">🔗</div><b>Links</b><small>Verificador</small><code id="p3">–</code></div>
+<div class="step"><div class="ic">🖼️</div><b>Imagens</b><small>Verificador</small><code id="p4">–</code></div>
+<div class="step"><div class="ic">🚀</div><b>Publicação</b><small>Vercel</small><code id="p5">automática</code></div>
+<div class="step"><div class="ic">📈</div><b>Análise</b><small>em breve</small><code>—</code></div>
+</div>
+
+<h2>Escritório ao vivo <span>os robôs vão pra mesa no horário da tarefa · clique num robô</span></h2>
+<div class="office"><svg id="office" viewBox="0 0 1000 520"></svg></div>
+
+<div class="bottom">
+<div><h2>Equipe</h2><div class="team" id="team"></div></div>
+<div><h2>Atividade <span>registro real dos agentes</span></h2><div class="feed" id="feed"><div class="ev">Carregando…</div></div>
+<p class="note">Os números vêm direto do site (artigos e links) e do registro que cada agente grava ao terminar. Vendas e cliques: a Amazon não libera esses dados automaticamente para contas novas, por isso os atalhos acima.</p></div>
+</div></div>
+<script>
+const TZ='America/Sao_Paulo';
+const AG=[
+ {id:'writer',name:'Pena',role:'Redator',desc:'Pesquisa produtos, escreve e publica 2 guias por dia.',h:8,m:32,days:[1,2,3,4,5],dur:40,color:'#22d3ee',desk:[330,230]},
+ {id:'links',name:'Elo',role:'Verificador de links',desc:'Confere se cada link leva ao produto certo, com seu código.',h:9,m:37,days:[0,1,2,3,4,5,6],dur:30,color:'#3b82f6',desk:[560,195]},
+ {id:'images',name:'Lente',role:'Verificador de imagens',desc:'Confere se as fotos carregam, são gratuitas e combinam com o texto.',h:10,m:37,days:[0,1,2,3,4,5,6],dur:25,color:'#f472b6',desk:[740,280]},
+ {id:'analyst',name:'Radar',role:'Analista do Google',desc:'Vai ler o Search Console 1x por semana (ainda não ativado).',soon:true,color:'#a78bfa',desk:[520,350]}];
+const fmt=new Intl.DateTimeFormat('pt-BR',{timeZone:TZ,hour:'2-digit',minute:'2-digit',second:'2-digit'});
+const fmtD=new Intl.DateTimeFormat('pt-BR',{timeZone:TZ,day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+function sp(){const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:TZ,hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short'}).formatToParts(new Date()).map(x=>[x.type,x.value]));return{y:+p.year,mo:+p.month,d:+p.day,h:+p.hour%24,mi:+p.minute,wd:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday)}}
+let LOG=[],ARTS=[];
+function todayKey(){const t=sp();return `${t.y}-${String(t.mo).padStart(2,'0')}-${String(t.d).padStart(2,'0')}`}
+function spKey(iso){const p=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(iso)).map(x=>[x.type,x.value]));return `${p.year}-${p.month}-${p.day}`}
+function status(a){if(a.soon)return['soon','Em breve'];const t=sp(),now=t.h*60+t.mi,st=a.h*60+a.m;
+ const last=LOG.filter(e=>e.agent===a.id).slice(-1)[0];const ranToday=last&&spKey(last.date)===todayKey();
+ if(ranToday&&/FAILED/i.test(last.notes||''))return['err','Com erro'];
+ if(ranToday)return['done','Concluiu hoje'];
+ if(a.days.includes(t.wd)&&now>=st&&now<st+a.dur)return['work','Trabalhando'];
+ return['rest','Descansando']}
+function nextRun(a){if(a.soon)return null;const t=sp();for(let i=0;i<8;i++){const wd=(t.wd+i)%7;if(!a.days.includes(wd))continue;const mins=a.h*60+a.m-(t.h*60+t.mi)+i*1440;if(mins>0)return mins}return null}
+function iso(x,y){return`translate(${x},${y})`}
+function robot(a,x,y,state){const work=state==='work';return `<g transform="${iso(x,y)}"><g class="robot ${work?'work':''}" style="cursor:pointer" data-id="${a.id}">
+<ellipse cx="0" cy="38" rx="18" ry="6" fill="${a.color}" opacity=".35"/>
+<rect x="-14" y="6" width="28" height="26" rx="8" fill="#e6edf8"/><rect x="-9" y="13" width="18" height="10" rx="3" fill="#0d172b" class="screen"/>
+<rect x="-17" y="-20" width="34" height="26" rx="10" fill="#f4f7fc"/><rect x="-12" y="-14" width="24" height="13" rx="5" fill="#0d172b"/>
+<circle class="eye" cx="-5" cy="-8" r="2.4" fill="${a.color}"/><circle class="eye" cx="5" cy="-8" r="2.4" fill="${a.color}"/>
+<line x1="0" y1="-20" x2="0" y2="-29" stroke="#cbd5e1" stroke-width="2"/><circle cx="0" cy="-31" r="3" fill="${a.color}"/>
+<text y="56" text-anchor="middle" fill="#cbd5e1" font-size="12" font-family="Inter" font-weight="600">${a.name}</text></g></g>`}
+function desk(x,y,c,label){return `<g transform="${iso(x,y)}"><path d="M-46 0 L0 -23 L46 0 L0 23 Z" fill="#14223f" stroke="${c}" stroke-opacity=".7"/>
+<path d="M-46 0 L-46 10 L0 33 L0 23 Z" fill="#0c1730"/><path d="M46 0 L46 10 L0 33 L0 23 Z" fill="#0a1328"/>
+<rect x="-12" y="-30" width="24" height="16" rx="2" fill="#0a1324" stroke="${c}" stroke-opacity=".8"/>
+<g transform="translate(0,-62)"><rect x="${-label.length*3.6-12}" y="-12" width="${label.length*7.2+24}" height="22" rx="11" fill="#0a1324" stroke="${c}"/><circle cx="${-label.length*3.6-2}" cy="-1" r="3.5" fill="${c}"/><text x="4" y="4" text-anchor="middle" fill="#eaf0fb" font-size="12" font-family="Inter" font-weight="600">${label}</text></g></g>`}
+function drawOffice(){let s=`<defs><linearGradient id="fl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f1d3a"/><stop offset="1" stop-color="#0a1428"/></linearGradient><linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101f45"/><stop offset="1" stop-color="#2a1a4a"/></linearGradient></defs>`;
+ s+=`<path d="M500 60 L940 280 L500 500 L60 280 Z" fill="url(#fl)" stroke="#22d3ee" stroke-opacity=".5"/>`;
+ s+=`<path d="M60 280 L60 170 L500 -50 L500 60 Z" fill="url(#wl)" opacity=".9"/><path d="M500 60 L500 -50 L940 170 L940 280 Z" fill="url(#wl)" opacity=".75"/>`;
+ for(let i=0;i<10;i++)s+=`<circle cx="${80+Math.random()*840}" cy="${20+Math.random()*150}" r="${Math.random()*1.4+.4}" fill="#fff" opacity=".6"/>`;
+ for(let i=1;i<8;i++){s+=`<line x1="${60+i*55}" y1="${280-i*27.5}" x2="${500+i*55}" y2="${500-i*27.5}" stroke="#1b2a48" stroke-width="1"/><line x1="${500-i*55}" y1="${60+i*27.5}" x2="${940-i*55}" y2="${280+i*27.5}" stroke="#1b2a48"/>`}
+ s+=`<text x="540" y="40" fill="#fbbf24" font-family="Plus Jakarta Sans" font-weight="800" font-size="15" opacity=".9">THE HOME DESK GUIDE · CENTRAL DE AGENTES</text>`;
+ s+=`<g transform="translate(290,400)"><path d="M-60 0 L0 -30 L60 0 L0 30 Z" fill="#1a1638" stroke="#a78bfa" stroke-opacity=".6"/><ellipse cx="0" cy="-2" rx="26" ry="12" fill="#6d5bd0" opacity=".5"/><g transform="translate(0,-48)"><rect x="-38" y="-12" width="76" height="22" rx="11" fill="#0a1324" stroke="#a78bfa"/><text y="4" text-anchor="middle" fill="#eaf0fb" font-size="12" font-family="Inter" font-weight="600">Copa</text></g></g>`;
+ const plants=[[140,270],[880,270],[500,95],[690,420]];plants.forEach(([x,y])=>s+=`<g transform="${iso(x,y)}"><rect x="-7" y="0" width="14" height="12" rx="2" fill="#475569"/><path d="M0 0 q-14 -16 -4 -26 q4 14 4 26 q2 -18 12 -24 q4 14 -12 24" fill="#34d399"/></g>`);
+ AG.forEach(a=>s+=desk(a.desk[0],a.desk[1],a.color,a.role.split(' ')[0]==='Verificador'?a.role.replace('Verificador de ','Verif. '):a.role));
+ const lounge=[[200,450],[262,470],[324,450],[386,470]];
+ AG.forEach((a,i)=>{const[st]=status(a);let x,y;if(st==='work'){x=a.desk[0]+22;y=a.desk[1]+20}else{[x,y]=lounge[i]}s+=robot(a,x,y,st)});
+ document.getElementById('office').innerHTML=s;
+ document.querySelectorAll('.robot').forEach(r=>r.onclick=()=>select(r.dataset.id))}
+function select(id){document.querySelectorAll('.agent').forEach(e=>e.classList.toggle('sel',e.dataset.id===id));const el=document.querySelector(`.agent[data-id="${id}"]`);el&&el.scrollIntoView({behavior:'smooth',block:'nearest'})}
+function drawTeam(){document.getElementById('team').innerHTML=AG.map(a=>{const[c,l]=status(a);const last=LOG.filter(e=>e.agent===a.id).slice(-1)[0];const nr=nextRun(a);
+ return `<div class="agent" data-id="${a.id}"><div class="top"><b>${a.name} · ${a.role}</b><span class="st ${c}">${l}</span></div><p>${a.desc}</p>
+ <div class="meta">${a.soon?'aguardando ativação':`agenda: ${String(a.h).padStart(2,'0')}:${String(a.m).padStart(2,'0')} ${a.days.length===7?'todo dia':'seg–sex'}`}${last?` · última: ${fmtD.format(new Date(last.date))}`:' · ainda não rodou'}${nr?` · próxima em ${nr>=60?Math.floor(nr/60)+'h'+String(nr%60).padStart(2,'0'):nr+'min'}`:''}</div></div>`}).join('');
+ document.querySelectorAll('.agent').forEach(e=>e.onclick=()=>select(e.dataset.id))}
+function drawFeed(){const names={writer:'Pena (Redator)',links:'Elo (Links)',images:'Lente (Imagens)',setup:'Sistema',analyst:'Radar'};
+ document.getElementById('feed').innerHTML=LOG.slice().reverse().slice(0,40).map(e=>{let txt=e.notes||'';if(e.agent==='writer'&&e.articles)txt=`publicou: ${e.articles.join(' · ')} (${e.products||0} produtos)`;
+ if(e.agent==='links')txt=`${e.checked??0} links conferidos · ${e.fixed??0} corrigidos · ${e.removed??0} removidos${e.unverified?` · ${e.unverified} não verificados`:''}`;
+ if(e.agent==='images')txt=`${e.checked??0} imagens conferidas · ${e.replaced??0} trocadas`;
+ if(/FAILED/i.test(e.notes||''))txt='⚠️ '+e.notes;
+ return `<div class="ev"><time>${fmtD.format(new Date(e.date))}</time><b>${names[e.agent]||e.agent}</b> — ${txt}</div>`}).join('')||'<div class="ev">Nenhuma atividade ainda.</div>'}
+function drawKpis(){const all=ARTS.map(a=>a.sections.map(s=>s[1]).join('')).join('');const ctas=[...all.matchAll(/href="(https:\/\/www\.amazon\.com\/[^"]+)"/g)].map(m=>m[1]);
+ const uniq=new Set(ctas);const dp=[...uniq].filter(u=>u.includes('/dp/'));
+ document.getElementById('k-art').textContent=ARTS.length;document.getElementById('k-prod').textContent=uniq.size;
+ document.getElementById('k-dp').textContent=dp.length;document.getElementById('k-dp2').textContent=`de ${uniq.size} vão direto pro produto`;
+ const tk=todayKey();document.getElementById('k-runs').textContent=LOG.filter(e=>e.agent!=='setup'&&spKey(e.date)===tk).length;
+ const w=LOG.filter(e=>e.agent==='writer'),l=LOG.filter(e=>e.agent==='links'),im=LOG.filter(e=>e.agent==='images');
+ const since=Date.now()-7*864e5;const wk=x=>x.filter(e=>new Date(e.date)>since);
+ document.getElementById('p1').textContent=`${wk(w).length} em 7 d`;document.getElementById('p2').textContent=`${wk(w).reduce((s,e)=>s+(e.articles?.length||0),0)} guias em 7 d`;
+ document.getElementById('p3').textContent=`${wk(l).length} em 7 d`;document.getElementById('p4').textContent=`${wk(im).length} em 7 d`}
+function tick(){document.getElementById('clock').firstChild.textContent=fmt.format(new Date());
+ const n=AG.map(a=>[a,nextRun(a)]).filter(x=>x[1]!=null).sort((a,b)=>a[1]-b[1])[0];
+ if(n){const m=n[1];document.getElementById('next').textContent=`próxima: ${n[0].name} em ${m>=60?Math.floor(m/60)+'h'+String(m%60).padStart(2,'0'):m+' min'}`}
+ const working=AG.filter(a=>status(a)[0]==='work').length;document.getElementById('op').textContent=working?`${working} agente(s) trabalhando`:'Operação ligada'}
+async function load(){try{const [a,l]=await Promise.all([fetch('/build/articles.json?'+Date.now()).then(r=>r.json()),fetch('/data/agents-log.json?'+Date.now()).then(r=>r.json()).catch(()=>[])]);ARTS=a;LOG=l.sort((x,y)=>new Date(x.date)-new Date(y.date))}catch(e){console.error(e)}
+ drawKpis();drawTeam();drawFeed();drawOffice();tick()}
+load();setInterval(tick,1000);setInterval(load,60000);
+</script></body></html>
