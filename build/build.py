@@ -44,6 +44,45 @@ urls=['','about/','contact/','disclosure/','privacy/']+[f'guides/{a["slug"]}/' f
 open(os.path.join(R,'sitemap.xml'),'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{SITE}/{u}</loc></url>\n' for u in urls)+'</urlset>\n')
 
 from xml.sax.saxutils import escape as X
-PIN=lambda a:f"{SITE}/pins/{a['slug']}.png?v=3"
-items=''.join(f"<item><title>{X(a['title'])}</title><link>{SITE}/guides/{a['slug']}/?utm_source=pinterest</link><guid>{SITE}/guides/{a['slug']}/?utm_source=pinterest</guid><description>{X(a['desc']+' Compare specs, pros and cons, and find the right pick for your home office.')}</description><enclosure url=\"{X(PIN(a))}\" type=\"image/png\" length=\"0\"/><media:content url=\"{X(PIN(a))}\" medium=\"image\"/></item>" for a in arts)
-open(os.path.join(R,'feed.xml'),'w').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title>The Home Desk Guide</title><link>{SITE}/</link><description>Home office buying guides</description>{items}</channel></rss>')
+
+import re,datetime,html as H
+# ---------- Pinterest: several pins per article, released gradually ----------
+STATE=os.path.join(R,'data','pin-schedule.json')
+try: sched=json.load(open(STATE))
+except Exception: sched={}
+def strip(t): return H.unescape(re.sub('<[^>]+>','',t)).strip()
+def variants(a):
+    allh=''.join(s[1] for s in a['sections'])
+    v=[('main',a['title'],a['desc']+' Compare specs, pros and cons side by side and find the right pick for your home office.')]
+    for i,m in enumerate(re.finditer(r'<div class="pick">.*?<span class="badge">(.*?)</span><h3>(.*?)</h3>.*?<ul>(.*?)</ul><p><strong>Best for:</strong>(.*?)</p>',allh,re.S)):
+        badge,name,ul,best=[strip(x) for x in m.groups()]
+        short=a['title'].split(' (')[0]
+        v.append((f'p{i}',f'{name} – {badge} | {short}',f'{name} ({badge.lower()}). Best for: {best} See how it compares with other picks in our guide: {a["title"]}.'))
+    if not a['title'].lower().startswith('how to'): v.append(('tips',f'Before you buy: {a["title"].split(" (")[0]} checklist',f'Quick checklist before you buy. {a["desc"]}'))
+    return v
+today=datetime.date.today()
+queue=[]
+for a in reversed(arts):  # oldest first
+    for vid,t,d in variants(a):
+        key=f"{a['slug']}|{vid}"; queue.append((key,a,vid,t,d))
+# release up to 10 new pins per day, spread over days
+released_today=sum(1 for k,v in sched.items() if v==str(today))
+for key,a,vid,t,d in queue:
+    if key in sched: continue
+    if released_today>=10: break
+    sched[key]=str(today); released_today+=1
+os.makedirs(os.path.dirname(STATE),exist_ok=True); json.dump(sched,open(STATE,'w'),indent=0)
+def item(key,a,vid,t,d):
+    link=f"{SITE}/guides/{a['slug']}/?utm_source=pinterest&utm_content={vid}"
+    img=f"{SITE}/pins/{a['slug']}.png?v=3&amp;variant={vid}".replace('&amp;','&')
+    pub=datetime.datetime.fromisoformat(sched[key]).strftime('%a, %d %b %Y 12:00:00 +0000')
+    return f"<item><title>{X(t)}</title><link>{X(link)}</link><guid>{X(link)}</guid><pubDate>{pub}</pubDate><description>{X(d)}</description><enclosure url=\"{X(img)}\" type=\"image/png\" length=\"0\"/><media:content url=\"{X(img)}\" medium=\"image\"/></item>"
+live=[q for q in queue if q[0] in sched]
+def feed(name,items,title):
+    open(os.path.join(R,name),'w').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title>{X(title)}</title><link>{SITE}/</link><description>Home office buying guides</description>{"".join(item(*q) for q in items)}</channel></rss>')
+feed('feed.xml',live,'The Home Desk Guide')
+cats={}
+for q in live:
+    cats.setdefault(re.sub(r'[^a-z0-9]+','-',q[1]['tag'].lower()).strip('-'),[]).append(q)
+for c,its in cats.items(): feed(f'feed-{c}.xml',its,f'The Home Desk Guide – {its[0][1]["tag"]}')
+
