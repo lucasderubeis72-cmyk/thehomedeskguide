@@ -17,11 +17,16 @@ cards=''.join(f'<a class="card" href="/guides/{a["slug"]}/"><img src="{a["img"]}
 soon=[("https://images.unsplash.com/photo-1688578735352-9a6f2ac3b70a?auto=format&fit=crop&w=800&q=80","Chairs","Ergonomic chairs: what really matters","The features worth paying for, and the ones that are just marketing."),("https://images.unsplash.com/photo-1611096002616-763f16ef15f3?auto=format&fit=crop&w=800&q=80","Setup","The home office setup checklist","Monitor height, lighting and cables, step by step.")]
 cards+=''.join(f'<div class="card soon"><img src="{i}" alt="{h}" loading="lazy"><div class="body"><div class="tag">Coming soon · {t}</div><h3>{h}</h3><p>{p}</p></div></div>' for i,t,h,p in soon if not any(a["img"]==i for a in arts))
 page('',"The Home Desk Guide – Honest Home Office Gear Advice","Practical guides to standing desks, ergonomic chairs and desk gear for people who work from home.",f'''
-<section class="hero"><div class="wrap"><div><span class="eyebrow">Work-from-home, done right</span><h1>Build a home office you actually enjoy working in</h1>
-<p>Clear, no-hype guides to standing desks, ergonomic chairs and the small upgrades that make long workdays easier on your body.</p>
-<a class="btn" href="#guides">Browse the guides →</a><div class="trust"><span><b>No sponsored rankings</b></span><span><b>Plain-English advice</b></span><span><b>Updated regularly</b></span></div></div>
-<img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?auto=format&fit=crop&w=1400&q=80" alt="A home office with a wooden desk, black chair and green walls"></div></section>
-<section class="section" id="guides"><div class="wrap"><h2>Latest guides</h2><p class="sub">Start here if you are setting up or upgrading your workspace.</p><div class="grid">{cards}</div></div></section>''')
+<section class="hero"><div class="wrap"><div><span class="eyebrow">Home office buying guides</span><h1>Build a home office you <span>actually enjoy</span> working in</h1>
+<p>Clear, no-hype guides to standing desks, ergonomic chairs and the upgrades that make long workdays easier on your body.</p>
+<a class="btn" href="#guides">Browse the guides →</a><a class="btn ghost" href="/about/">How we research</a>
+<div class="stats"><div><b>Specs-first</b>compared side by side</div><div><b>No sponsored</b>rankings, ever</div><div><b>Updated</b>every month</div></div></div>
+<div class="shot"><img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?auto=format&fit=crop&w=1400&q=80" alt="A home office with a wooden desk and chair"><div class="float"><b>5 compact desks compared</b><span>Our latest standing desk guide</span></div></div></div></section>
+<section class="section" id="guides"><div class="wrap"><h2>Latest guides</h2><p class="sub">Start here if you are setting up or upgrading your workspace.</p><div class="grid">{cards}</div></div></section>
+<section class="section" style="padding-top:0"><div class="wrap"><h2>How we choose products</h2><p class="sub">Every recommendation follows the same simple process.</p><div class="features">
+<div class="feature"><div class="ic">📐</div><h3>Specs side by side</h3><p>We compare size, height range, motors and weight limits from manufacturer listings.</p></div>
+<div class="feature"><div class="ic">💬</div><h3>Real owner feedback</h3><p>We look for recurring complaints like wobble, noise and early failures before recommending anything.</p></div>
+<div class="feature"><div class="ic">🔍</div><h3>Honest trade-offs</h3><p>Every pick lists its weaknesses too, so you know exactly what you are giving up.</p></div></div></div></section>''')
 for a in arts:
     toc=''.join(f'<li><a href="#s{i}">{h}</a></li>' for i,(h,_) in enumerate(a["sections"]))
     secs=''.join(f'<h2 id="s{i}">{h}</h2>{b}' for i,(h,b) in enumerate(a["sections"]))
