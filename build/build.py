@@ -10,17 +10,17 @@ def page(path,title,desc,main):
 <nav class="nav"><a href="/#guides">Guides</a><a href="/about/">About</a><a href="/disclosure/">Disclosure</a></nav></div></header>
 {main}
 <footer><div class="wrap"><div><strong>The Home Desk Guide</strong><br>Practical advice for a better home office.</div>
-<div>As an Amazon Associate we earn from qualifying purchases.<br><a href="/disclosure/">Affiliate disclosure</a> · <a href="/privacy/">Privacy</a> · © 2026</div></div></footer></body></html>'''
+<div>As an Amazon Associate we earn from qualifying purchases.<br><a href="/disclosure/">Affiliate disclosure</a> · <a href="/privacy/">Privacy</a> · © 2026<br>Photos: <a href=\"https://unsplash.com\">Unsplash</a></div></div></footer></body></html>'''
     d=os.path.join(R,path);os.makedirs(d,exist_ok=True);open(os.path.join(d,'index.html'),'w').write(html)
 arts=json.load(open(os.path.join(R,'build','articles.json')))
-cards=''.join(f'<a class="card" href="/guides/{a["slug"]}/"><img src="/img/{a["img"]}" alt="{a["title"]}"><div class="body"><div class="tag">{a["tag"]}</div><h3>{a["title"]}</h3><p>{a["desc"]}</p></div></a>' for a in arts)
-soon=[("chair.svg","Chairs","Ergonomic chairs: what really matters","The features worth paying for, and the ones that are just marketing."),("checklist.svg","Setup","The home office setup checklist","Monitor height, lighting and cables, step by step.")]
-cards+=''.join(f'<div class="card soon"><img src="/img/{i}" alt=""><div class="body"><div class="tag">Coming soon · {t}</div><h3>{h}</h3><p>{p}</p></div></div>' for i,t,h,p in soon if not any(a["img"]==i for a in arts))
+cards=''.join(f'<a class="card" href="/guides/{a["slug"]}/"><img src="{a["img"]}" alt="{a["title"]}"><div class="body"><div class="tag">{a["tag"]}</div><h3>{a["title"]}</h3><p>{a["desc"]}</p></div></a>' for a in arts)
+soon=[("https://images.unsplash.com/photo-1688578735352-9a6f2ac3b70a?auto=format&fit=crop&w=800&q=80","Chairs","Ergonomic chairs: what really matters","The features worth paying for, and the ones that are just marketing."),("https://images.unsplash.com/photo-1611096002616-763f16ef15f3?auto=format&fit=crop&w=800&q=80","Setup","The home office setup checklist","Monitor height, lighting and cables, step by step.")]
+cards+=''.join(f'<div class="card soon"><img src="{i}" alt="{h}" loading="lazy"><div class="body"><div class="tag">Coming soon · {t}</div><h3>{h}</h3><p>{p}</p></div></div>' for i,t,h,p in soon if not any(a["img"]==i for a in arts))
 page('',"The Home Desk Guide – Honest Home Office Gear Advice","Practical guides to standing desks, ergonomic chairs and desk gear for people who work from home.",f'''
 <section class="hero"><div class="wrap"><div><span class="eyebrow">Work-from-home, done right</span><h1>Build a home office you actually enjoy working in</h1>
 <p>Clear, no-hype guides to standing desks, ergonomic chairs and the small upgrades that make long workdays easier on your body.</p>
 <a class="btn" href="#guides">Browse the guides →</a><div class="trust"><span><b>No sponsored rankings</b></span><span><b>Plain-English advice</b></span><span><b>Updated regularly</b></span></div></div>
-<img src="/img/hero.svg" alt="Illustration of a tidy home office with a desk, monitor and chair"></div></section>
+<img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?auto=format&fit=crop&w=1400&q=80" alt="A home office with a wooden desk, black chair and green walls"></div></section>
 <section class="section" id="guides"><div class="wrap"><h2>Latest guides</h2><p class="sub">Start here if you are setting up or upgrading your workspace.</p><div class="grid">{cards}</div></div></section>''')
 for a in arts:
     toc=''.join(f'<li><a href="#s{i}">{h}</a></li>' for i,(h,_) in enumerate(a["sections"]))
@@ -28,7 +28,7 @@ for a in arts:
     page(f'guides/{a["slug"]}/',f'{a["title"]} – The Home Desk Guide',a["desc"],f'''<article class="article"><div class="crumbs"><a href="/">Home</a> › <a href="/#guides">{a["tag"]}</a></div>
 <h1>{a["title"]}</h1><div class="meta"><span>By The Home Desk Guide team</span><span>·</span><span>Updated {a["updated"]}</span></div>
 <p class="disclosure-note">Some links may be affiliate links. We may earn a commission at no extra cost to you. <a href="/disclosure/">Learn more</a>.</p>
-<img class="cover" src="/img/{a["img"]}" alt="{a["title"]}"><p style="font-size:1.15rem">{a["intro"]}</p>
+<img class="cover" src="{a["img"]}" alt="{a["title"]}"><p style="font-size:1.15rem">{a["intro"]}</p>
 <nav class="toc"><strong>In this guide</strong><ol>{toc}</ol></nav>{secs}</article>''')
 simple={'about':("About","<p>The Home Desk Guide helps remote workers choose home office gear without the hype. We compare specifications, prices and real owner feedback so you can decide faster and buy once.</p>"),
 'disclosure':("Affiliate Disclosure","<p>Some links on this site are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. As an Amazon Associate, we earn from qualifying purchases. This never changes our recommendations.</p>"),
