@@ -29,7 +29,7 @@ radial-gradient(700px 400px at -10% 110%,rgba(34,211,238,.12),transparent 60%),v
 .stats{display:flex;gap:36px;margin-top:40px;flex-wrap:wrap}.stats div{font-size:.88rem;color:var(--muted)}.stats b{display:block;color:#fff;font-family:"Plus Jakarta Sans";font-size:1.4rem}
 .trust{display:none}
 .section{padding:80px 0}.section h2{font-size:2.2rem;margin:0 0 10px}.section .sub{color:var(--muted);margin:0 0 36px;font-size:1.05rem}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s}
 .card:hover{transform:translateY(-5px);border-color:rgba(96,165,250,.5);box-shadow:0 20px 50px rgba(59,130,246,.15)}
 .card img{aspect-ratio:16/10;object-fit:cover;width:100%}
