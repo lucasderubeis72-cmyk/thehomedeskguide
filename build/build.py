@@ -4,7 +4,7 @@ SITE="https://thehomedeskguide.com"
 def page(path,title,desc,main):
     html=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="{desc}"><link rel="canonical" href="{SITE}/{path}">
-<link rel="icon" href="/favicon.svg"><meta property="og:title" content="{title}"><meta property="og:description" content="{desc}">
+<link rel="icon" href="/favicon.svg"><meta name="p:domain_verify" content="3c62c34cb81e9f502e93caeccf102331"/><link rel="alternate" type="application/rss+xml" title="The Home Desk Guide" href="/feed.xml"><meta property="og:title" content="{title}"><meta property="og:description" content="{desc}">
 <link rel="stylesheet" href="/style.css"></head><body>
 <header class="site-header"><div class="wrap"><a class="brand" href="/"><img src="/img/logo.svg" alt=""><span>The Home <em>Desk</em> Guide</span></a>
 <nav class="nav"><a href="/#guides">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav></div></header>
@@ -42,3 +42,7 @@ simple={'about':("About",'<p>Hi, I\'m Lucas, the founder and editor of The Home 
 for p,(t,b) in simple.items(): page(f'{p}/',f'{t} – The Home Desk Guide',t,f'<article class="article"><h1>{t}</h1>{b}</article>')
 urls=['','about/','contact/','disclosure/','privacy/']+[f'guides/{a["slug"]}/' for a in arts]
 open(os.path.join(R,'sitemap.xml'),'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{SITE}/{u}</loc></url>\n' for u in urls)+'</urlset>\n')
+
+from xml.sax.saxutils import escape as X
+items=''.join(f"<item><title>{X(a['title'])}</title><link>{SITE}/guides/{a['slug']}/</link><guid>{SITE}/guides/{a['slug']}/</guid><description>{X(a['desc'])}</description><enclosure url=\"{X(a['img'] if a['img'].startswith('http') else SITE+'/img/'+a['img'])}\" type=\"image/jpeg\" length=\"0\"/><media:content url=\"{X(a['img'] if a['img'].startswith('http') else SITE+'/img/'+a['img'])}\" medium=\"image\"/></item>" for a in arts)
+open(os.path.join(R,'feed.xml'),'w').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title>The Home Desk Guide</title><link>{SITE}/</link><description>Home office buying guides</description>{items}</channel></rss>')
