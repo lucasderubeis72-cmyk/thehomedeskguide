@@ -44,6 +44,6 @@ urls=['','about/','contact/','disclosure/','privacy/']+[f'guides/{a["slug"]}/' f
 open(os.path.join(R,'sitemap.xml'),'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{SITE}/{u}</loc></url>\n' for u in urls)+'</urlset>\n')
 
 from xml.sax.saxutils import escape as X
-PIN=lambda a:f"{SITE}/pins/{a['slug']}.png"
+PIN=lambda a:f"{SITE}/pins/{a['slug']}.png?v=2"
 items=''.join(f"<item><title>{X(a['title'])}</title><link>{SITE}/guides/{a['slug']}/?utm_source=pinterest</link><guid>{SITE}/guides/{a['slug']}/?utm_source=pinterest</guid><description>{X(a['desc']+' Compare specs, pros and cons, and find the right pick for your home office.')}</description><enclosure url=\"{X(PIN(a))}\" type=\"image/png\" length=\"0\"/><media:content url=\"{X(PIN(a))}\" medium=\"image\"/></item>" for a in arts)
 open(os.path.join(R,'feed.xml'),'w').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title>The Home Desk Guide</title><link>{SITE}/</link><description>Home office buying guides</description>{items}</channel></rss>')

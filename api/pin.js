@@ -26,5 +26,5 @@ export default async function handler(req){
       h('div',{color:'#fff',fontSize:title.length>34?76:88,fontWeight:800,lineHeight:1.02,letterSpacing:-3,marginTop:28},title),
       h('div',{display:'flex',flexDirection:'column',marginTop:30},list),
       h('div',{display:'flex',marginTop:'auto',background:'linear-gradient(90deg,#3b82f6,#22d3ee)',borderRadius:22,padding:'26px 0',justifyContent:'center',color:'#fff',fontSize:36,fontWeight:800},'See the full comparison →')])]);
-  return new ImageResponse(el,{width:1000,height:1500,fonts:[{name:'Jakarta',data:f8,weight:800},{name:'Jakarta',data:f6,weight:600}],headers:{'cache-control':'public, max-age=3600'}});
+  return new ImageResponse(el,{width:1000,height:1500,fonts:[{name:'Jakarta',data:f8,weight:800},{name:'Jakarta',data:f6,weight:600}],headers:{'cache-control':'public, max-age=600, s-maxage=600'}});
 }
