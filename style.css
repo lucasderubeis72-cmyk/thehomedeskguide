@@ -37,3 +37,9 @@ h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.2;color:var(
 .disclosure-note{font-size:.85rem;color:var(--muted);background:var(--card);border:1px dashed var(--line);padding:10px 14px;border-radius:10px}
 footer{background:#070b15;border-top:1px solid var(--line);color:var(--muted);margin-top:40px}footer .wrap{padding:40px 20px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:.9rem}footer a{color:#fff}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.nav a{margin-left:14px}}
+.pick{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:20px 0;display:grid;grid-template-columns:160px 1fr;gap:20px}
+.pick .ph{background:linear-gradient(135deg,#16213d,#0f1830);border:1px dashed #334155;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;text-align:center;min-height:150px}
+.pick .badge{display:inline-block;background:linear-gradient(90deg,#3b82f6,#22d3ee);color:#fff;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px}
+.pick h3{margin:8px 0}.pick ul{margin:8px 0;padding-left:18px;color:var(--muted);font-size:.95rem}
+.specs{width:100%;border-collapse:collapse;font-size:.92rem;margin:16px 0}.specs th,.specs td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left}.specs th{color:var(--muted);font-weight:500}
+@media(max-width:600px){.pick{grid-template-columns:1fr}}
