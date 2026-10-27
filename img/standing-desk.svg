@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420"><rect width="800" height="420" fill="#e3efe9"/><rect y="350" width="800" height="70" fill="#c9dcd3"/>
-<g stroke="#1f4d43" stroke-width="3" fill="none" stroke-dasharray="8 6"><line x1="150" y1="120" x2="150" y2="345"/><line x1="140" y1="120" x2="160" y2="120"/><line x1="140" y1="345" x2="160" y2="345"/></g>
-<rect x="250" y="150" width="320" height="18" rx="5" fill="#8a5a33"/><rect x="280" y="168" width="22" height="182" fill="#3a3f45"/><rect x="518" y="168" width="22" height="182" fill="#3a3f45"/><rect x="284" y="250" width="14" height="6" fill="#e8a54b"/><rect x="522" y="250" width="14" height="6" fill="#e8a54b"/><rect x="260" y="345" width="60" height="9" rx="4" fill="#2b2f33"/><rect x="500" y="345" width="60" height="9" rx="4" fill="#2b2f33"/>
-<rect x="340" y="70" width="140" height="80" rx="6" fill="#2b2f33"/><rect x="348" y="78" width="124" height="64" rx="3" fill="#2a6456"/><rect x="400" y="140" width="20" height="10" fill="#3a3f45"/>
-<rect x="270" y="138" width="40" height="12" rx="3" fill="#e9e4dc"/><circle cx="540" cy="135" r="12" fill="#e8a54b"/>
-<g fill="#1f4d43" font-family="sans-serif" font-size="20" font-weight="700"><text x="60" y="240">28"–48"</text></g>
-<path d="M650 345 l0 -150 m-12 14 l12 -14 l12 14 m-24 120 l12 14 l12 -14" stroke="#e8a54b" stroke-width="5" fill="none"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420"><rect width="800" height="420" fill="#0f1830"/><rect y="350" width="800" height="70" fill="#16213d"/>
+<g stroke="#3b82f6" stroke-width="3" fill="none" stroke-dasharray="8 6"><line x1="150" y1="120" x2="150" y2="345"/><line x1="140" y1="120" x2="160" y2="120"/><line x1="140" y1="345" x2="160" y2="345"/></g>
+<rect x="250" y="150" width="320" height="18" rx="5" fill="#334155"/><rect x="280" y="168" width="22" height="182" fill="#94a3b8"/><rect x="518" y="168" width="22" height="182" fill="#94a3b8"/><rect x="284" y="250" width="14" height="6" fill="#22d3ee"/><rect x="522" y="250" width="14" height="6" fill="#22d3ee"/><rect x="260" y="345" width="60" height="9" rx="4" fill="#cbd5e1"/><rect x="500" y="345" width="60" height="9" rx="4" fill="#cbd5e1"/>
+<rect x="340" y="70" width="140" height="80" rx="6" fill="#cbd5e1"/><rect x="348" y="78" width="124" height="64" rx="3" fill="#1d4ed8"/><rect x="400" y="140" width="20" height="10" fill="#94a3b8"/>
+<rect x="270" y="138" width="40" height="12" rx="3" fill="#64748b"/><circle cx="540" cy="135" r="12" fill="#22d3ee"/>
+<g fill="#3b82f6" font-family="sans-serif" font-size="20" font-weight="700"><text x="60" y="240">28"–48"</text></g>
+<path d="M650 345 l0 -150 m-12 14 l12 -14 l12 14 m-24 120 l12 14 l12 -14" stroke="#22d3ee" stroke-width="5" fill="none"/></svg>
