@@ -13,5 +13,14 @@
   ],
   "products": 12,
   "notes": "Published chairs-under-300 and monitor-arms guides (6 products each, all amazon.com/dp links with tag). Added chair, monitor-arm and dual-arm line icons. Specs from Amazon titles, maker pages and reviews; Hbada P3 max weight not listed by maker."
+ },
+ {
+  "agent": "links",
+  "date": "2026-10-29T12:50:25Z",
+  "checked": 34,
+  "fixed": 0,
+  "removed": 0,
+  "unverified": 0,
+  "notes": "34 Amazon links (16 unique ASINs + 1 search link) across 3 guides. All carry tag thehomedeskgu-20; all 16 ASINs confirmed via amazon.com/dp titles matching product and size. FlexiSpot E7 uses an amazon.com/s search link (flagged; no exact E7 48x24 dp listing found, only E7 Pro 48x30)."
  }
 ]
