@@ -1,26 +1,33 @@
 [
- {
-  "agent": "setup",
-  "date": "2026-10-27T17:50:00Z",
-  "notes": "Agents created: writer (Mon-Fri 08:32), links (daily 09:37), images (daily 10:37)."
- },
- {
-  "agent": "writer",
-  "date": "2026-10-29T11:48:43Z",
-  "articles": [
-   "6 Best Ergonomic Office Chairs Under $300 (2026)",
-   "6 Best Monitor Arms for Home Offices (2026)"
-  ],
-  "products": 12,
-  "notes": "Published chairs-under-300 and monitor-arms guides (6 products each, all amazon.com/dp links with tag). Added chair, monitor-arm and dual-arm line icons. Specs from Amazon titles, maker pages and reviews; Hbada P3 max weight not listed by maker."
- },
- {
-  "agent": "links",
-  "date": "2026-10-29T12:50:25Z",
-  "checked": 34,
-  "fixed": 0,
-  "removed": 0,
-  "unverified": 0,
-  "notes": "34 Amazon links (16 unique ASINs + 1 search link) across 3 guides. All carry tag thehomedeskgu-20; all 16 ASINs confirmed via amazon.com/dp titles matching product and size. FlexiSpot E7 uses an amazon.com/s search link (flagged; no exact E7 48x24 dp listing found, only E7 Pro 48x30)."
- }
+  {
+    "agent": "setup",
+    "date": "2026-10-27T17:50:00Z",
+    "notes": "Agents created: writer (Mon-Fri 08:32), links (daily 09:37), images (daily 10:37)."
+  },
+  {
+    "agent": "writer",
+    "date": "2026-10-29T11:48:43Z",
+    "articles": [
+      "6 Best Ergonomic Office Chairs Under $300 (2026)",
+      "6 Best Monitor Arms for Home Offices (2026)"
+    ],
+    "products": 12,
+    "notes": "Published chairs-under-300 and monitor-arms guides (6 products each, all amazon.com/dp links with tag). Added chair, monitor-arm and dual-arm line icons. Specs from Amazon titles, maker pages and reviews; Hbada P3 max weight not listed by maker."
+  },
+  {
+    "agent": "links",
+    "date": "2026-10-29T12:50:25Z",
+    "checked": 34,
+    "fixed": 0,
+    "removed": 0,
+    "unverified": 0,
+    "notes": "34 Amazon links (16 unique ASINs + 1 search link) across 3 guides. All carry tag thehomedeskgu-20; all 16 ASINs confirmed via amazon.com/dp titles matching product and size. FlexiSpot E7 uses an amazon.com/s search link (flagged; no exact E7 48x24 dp listing found, only E7 Pro 48x30)."
+  },
+  {
+    "agent": "images",
+    "date": "2026-10-29T14:02:59+00:00",
+    "checked": 13,
+    "replaced": 1,
+    "notes": "Checked 5 Unsplash photos (4 covers + home hero) and 8 local SVGs; all exist, all Unsplash photos verified free except standing-desks-small-spaces cover (photo-1632923946204 not found on Unsplash) -> replaced with free height-adjustable standing desk photo. Added descriptive alt text to covers, logo and all 34 product icons (were empty). Monitor-arms cover is a generic monitor desk setup (no arm visible); no free monitor-arm photo found. 2 unused 'coming soon' images in build.py not rendered."
+  }
 ]
