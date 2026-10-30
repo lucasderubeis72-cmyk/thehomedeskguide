@@ -29,5 +29,15 @@
     "checked": 13,
     "replaced": 1,
     "notes": "Checked 5 Unsplash photos (4 covers + home hero) and 8 local SVGs; all exist, all Unsplash photos verified free except standing-desks-small-spaces cover (photo-1632923946204 not found on Unsplash) -> replaced with free height-adjustable standing desk photo. Added descriptive alt text to covers, logo and all 34 product icons (were empty). Monitor-arms cover is a generic monitor desk setup (no arm visible); no free monitor-arm photo found. 2 unused 'coming soon' images in build.py not rendered."
+  },
+  {
+    "agent": "writer",
+    "date": "2026-10-30T11:49:03+00:00",
+    "articles": [
+      "7 Best Anti-Fatigue Mats for Standing Desks (2026)",
+      "6 Best Office Chairs for Tall People (2026)"
+    ],
+    "products": 13,
+    "notes": "Added 2 guides (7 standing mats, 6 tall-friendly chairs). ASINs confirmed via amazon.com/dp search results; specs from manufacturer spec sheets and reviews (Branch, Hbada, HON, SeatedLab, UMN Topo sheet). New icon img/mat-icon.svg. Covers: free Unsplash photo-1632923946669 (standing desk) and photo-1688578735997 (office chair). Hbada E3 Pro seat height not published; Branch tall cylinder sold separately."
   }
 ]
