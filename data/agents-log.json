@@ -48,5 +48,12 @@
     "removed": 0,
     "unverified": 2,
     "notes": "30 Amazon links (29 ASINs + 1 search link), all carry tag thehomedeskgu-20. SIHOO M18 ASIN B0B5XHY4YR now titled 'SIHOO B100 SE' -> replaced with confirmed SIHOO M18 listing B082XXGL8M (330 lb, 2D armrests). Unverified (no amazon.com/dp result): CubeFit TerraMat B01N0DGA00, FlexiSpot EN1 40x24 B08868J4WZ. FlexiSpot E7 still uses amazon.com/s search link (flagged)."
+  },
+  {
+    "agent": "images",
+    "date": "2026-10-30T14:14:16+00:00",
+    "checked": 19,
+    "replaced": 0,
+    "notes": "Checked 7 Unsplash photos (6 covers + home hero) and 12 local SVGs (incl. favicon); all SVGs valid. Verified free on unsplash.com today: mats cover (SJop26S8f8E), tall-chairs cover (ElELSfycRvw), how-to-choose cover, monitor-arms cover, home hero. Small-spaces and chairs-under-300 covers not found on today's search pages but were verified free on 2026-10-29. All <img> have alt text; covers generic, relevant. No free photo showing an anti-fatigue mat or monitor arm found, so mats/monitor-arm covers stay generic. Nothing replaced."
   }
 ]
