@@ -39,5 +39,14 @@
     ],
     "products": 13,
     "notes": "Added 2 guides (7 standing mats, 6 tall-friendly chairs). ASINs confirmed via amazon.com/dp search results; specs from manufacturer spec sheets and reviews (Branch, Hbada, HON, SeatedLab, UMN Topo sheet). New icon img/mat-icon.svg. Covers: free Unsplash photo-1632923946669 (standing desk) and photo-1688578735997 (office chair). Hbada E3 Pro seat height not published; Branch tall cylinder sold separately."
+  },
+  {
+    "agent": "links",
+    "date": "2026-10-30T12:40:34+00:00",
+    "checked": 30,
+    "fixed": 1,
+    "removed": 0,
+    "unverified": 2,
+    "notes": "30 Amazon links (29 ASINs + 1 search link), all carry tag thehomedeskgu-20. SIHOO M18 ASIN B0B5XHY4YR now titled 'SIHOO B100 SE' -> replaced with confirmed SIHOO M18 listing B082XXGL8M (330 lb, 2D armrests). Unverified (no amazon.com/dp result): CubeFit TerraMat B01N0DGA00, FlexiSpot EN1 40x24 B08868J4WZ. FlexiSpot E7 still uses amazon.com/s search link (flagged)."
   }
 ]
