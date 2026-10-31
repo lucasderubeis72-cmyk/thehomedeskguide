@@ -64,5 +64,12 @@
     "removed": 0,
     "unverified": 2,
     "notes": "30 Amazon links (29 ASINs + 1 search link), all use format /dp/<ASIN>?tag=thehomedeskgu-20. 27 ASINs confirmed via amazon.com/dp results with matching titles/sizes. Unverified (no amazon.com/dp result): CubeFit TerraMat B01N0DGA00; FlexiSpot EN1 40x24 B08868J4WZ (matching title on amazon.ca/.ae, amazon.com Q&A page exists). FlexiSpot E7 still uses amazon.com/s search link (flagged). Nothing changed in content."
+  },
+  {
+    "agent": "images",
+    "date": "2026-10-31T13:44:44+00:00",
+    "checked": 19,
+    "replaced": 0,
+    "notes": "Checked 7 Unsplash photos (6 covers + home hero) and 12 local SVGs (incl. favicon); all SVGs valid, all <img> have alt text. Verified free on unsplash.com today: mats cover, tall-chairs cover, how-to-choose cover, monitor-arms cover (found on desk-setup search), home hero. Small-spaces (1601284102769) and chairs-under-300 (1776548759455) covers not found on today's search pages (sibling photo from the same yellow-chair series is listed free); verified free 2026-10-29, kept. Covers generic and relevant; monitor-arms/mats covers stay generic (no free arm/mat photo). Nothing replaced."
   }
 ]
