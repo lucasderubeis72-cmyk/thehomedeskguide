@@ -80,5 +80,12 @@
     "removed": 0,
     "unverified": 2,
     "notes": "30 Amazon links (29 ASINs + 1 search link), all correct format with tag thehomedeskgu-20. 27 ASINs confirmed via amazon.com/dp results with matching titles/sizes. Unverified (no amazon.com/dp result): CubeFit TerraMat B01N0DGA00; FlexiSpot EN1 40x24 B08868J4WZ. FlexiSpot E7 still uses amazon.com/s search link (flagged). Watch: SIHOO M18 B082XXGL8M canonical amazon.com title is M18, but one zh_TW amazon.com page for the same ASIN shows 'SIHOO B100 SE' title; kept. Nothing changed in content."
+  },
+  {
+    "agent": "images",
+    "date": "2026-11-01T13:50:06+00:00",
+    "checked": 19,
+    "replaced": 0,
+    "notes": "Checked 7 Unsplash photos (6 covers + home hero) and 12 local SVGs (incl. favicon); all SVGs valid XML, all <img> have meaningful alt text, no plus.unsplash or non-Unsplash remote images. Verified free on unsplash.com today: hero (home-office-interior), mats (TheStandingDesk profile), tall-chairs (photo page ElELSfycRvw), chairs-under-300 (office-chair search), monitor-arms (desk-setup), how-to-choose (standing-desk). Small-spaces cover 1601284102769 not found on any search page again (last verified 2026-10-29); kept, flagged. Covers generic and on-topic. Unused 'coming soon' cards in build.py are dead code (never rendered). Nothing replaced."
   }
 ]
