@@ -106,5 +106,12 @@
   "removed": 0,
   "unverified": 3,
   "notes": "42 Amazon links (41 ASINs + 1 search link), all correct format with tag thehomedeskgu-20. 38 ASINs confirmed via amazon.com/dp results with matching titles/sizes. Fixed: SIHOO M18 B082XXGL8M now titled 'SIHOO B100 SE' on www.amazon.com (different chair) -> replaced with confirmed M18 ASIN B07GNDDNMW. Unverified (no amazon.com/dp title found): CubeFit TerraMat B01N0DGA00; FlexiSpot EN1 40x24 B08868J4WZ (confirmed EN1 40x24 Black alternative exists: B082HJCYRD); Lumiy Lightblade 1500S B00FFYJJ4Y (1500S only found on amazon.de/.ae as B00FFYJIHC; amazon.com shows Lightblade 1500, not 1500S). FlexiSpot E7 still uses amazon.com/s search link (flagged). Watch: Everlasting Comfort B07PGLBCFG canonical title matches memory-foam footrest, but one amazon.com/dp result shows 'Elevate Series Adjustable Cloud Foot Rest'."
+ },
+ {
+  "agent": "images",
+  "date": "2026-11-02T13:58:00Z",
+  "checked": 23,
+  "replaced": 2,
+  "notes": "Checked 9 Unsplash photos (8 covers + home hero) and 14 local SVGs (incl. favicon); all SVGs valid XML, all <img> have meaningful alt, no plus.unsplash or non-Unsplash images. New covers from the writer agent could not be found on any unsplash.com page: desk-lamps (photo-1497128742402) -> replaced with verified free 'powered-on desk lamp near laptop' (photo-1560890264); footrests (photo-1715593949273) -> replaced with verified free generic desk+chair+laptop (photo-1725465119917; no free footrest photo found). Verified free today: hero, mats, how-to-choose. Small-spaces cover 1601284102769 still not found on search pages (verified 2026-10-29), kept, flagged."
  }
 ]
