@@ -113,5 +113,15 @@
   "checked": 23,
   "replaced": 2,
   "notes": "Checked 9 Unsplash photos (8 covers + home hero) and 14 local SVGs (incl. favicon); all SVGs valid XML, all <img> have meaningful alt, no plus.unsplash or non-Unsplash images. New covers from the writer agent could not be found on any unsplash.com page: desk-lamps (photo-1497128742402) -> replaced with verified free 'powered-on desk lamp near laptop' (photo-1560890264); footrests (photo-1715593949273) -> replaced with verified free generic desk+chair+laptop (photo-1725465119917; no free footrest photo found). Verified free today: hero, mats, how-to-choose. Small-spaces cover 1601284102769 still not found on search pages (verified 2026-10-29), kept, flagged."
+ },
+ {
+  "agent": "writer",
+  "date": "2026-11-03T16:37:31Z",
+  "articles": [
+   "7 Best Webcams for Remote Work (2026)",
+   "7 Best Cable Management Kits for Desks (2026)"
+  ],
+  "products": 14,
+  "notes": "Added webcams guide (C920x, Anker C200, EMEET S600, Razer Kiyo Pro, MX Brio, Brio 4K, Insta360 Link 2) and cable management guide (DELAMU tray, Yecaye no-drill tray, Mount-It spine, Bluelounge CableBox, JOTO sleeves, VELCRO ONE-WRAP, SOULWIT clips). ASINs confirmed from amazon.com/dp search results; specs from manufacturer pages/reviews. New icons webcam-icon.svg and cable-icon.svg. Covers: Unsplash 1760348213920 (webcam on monitor) and 1760348213270 (cable organizer under desk), taken from free results on unsplash.com search pages."
  }
 ]
